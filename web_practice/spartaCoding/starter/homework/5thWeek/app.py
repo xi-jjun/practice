@@ -31,7 +31,7 @@ def save_order():
         'phoneNum':phoneNum_receive
     }
 
-    db.myShopping.insert_one(doc)
+    db.myShopping.insert_one(doc) # mongoDB의 table 'myshopping'에 js로 부터 받은 정보 전송.
     
     return jsonify({'msg': 'Saved!!'})
 
