@@ -29,11 +29,11 @@ function paintToDo(newTodo) {
 
 function handleToDoSumbit(event) {
     event.preventDefault();
-    const inputValue = toDoInput.value;
+    const newTodo = toDoInput.value;
     toDoInput.value = "";
 
-    toDos.push(inputValue);
-    paintToDo(inputValue);
+    toDos.push(newTodo);
+    paintToDo(newTodo);
 
     saveToDos();
 }
@@ -48,5 +48,6 @@ const savedToDos = localStorage.getItem(TODOS_KEY);
 
 if (saveToDos) {
     const parsedToDos = JSON.parse(savedToDos);
+    // toDos = parsedToDos;
     parsedToDos.forEach(sayHello);
 }
