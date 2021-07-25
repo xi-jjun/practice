@@ -1,3 +1,5 @@
+// sorted String array에 한하여 실행 가능.
+
 public class BinarySearch{
     public static int binarySearch(String[] arr, String target, int begin, int end) {
         if(begin > end) return -1;
