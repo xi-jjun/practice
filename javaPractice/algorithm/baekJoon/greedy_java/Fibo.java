@@ -1,4 +1,5 @@
 // 9009번 Silver1
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -44,22 +45,6 @@ class Fibo{
                     cnt++;
                 }
             }
-
-            // for(int j = start; j < end; j++) {
-            //     if(n == fibos[j]) {
-            //         temp[cnt] = fibos[j];
-            //         break;
-            //     } else if(n < fibos[j] && n > fibos[j+1]) {
-            //         temp[cnt] = fibos[j+1];
-            //         n -= temp[cnt];
-
-            //         if(n == 0) break;
-
-            //         cnt++;
-            //         start = FIXED_LENGTH - j;
-            //         j = start;
-            //     }
-            // }
 
             for(int k = cnt; k >= 0; k--) {
                 bw.write(temp[k] + " ");
