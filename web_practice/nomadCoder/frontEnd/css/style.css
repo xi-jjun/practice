@@ -1,3 +1,40 @@
 .hidden {
     display: none;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.clock {
+    text-align: start;
+    color: aliceblue;
+}
+
+.todoList {
+    text-align: center;
+    margin-top: 100px;
+    color: azure;
+    font-size: large;
+}
+
+.list-elements {
+    text-align: center;
+    margin-top: 100px;
+    color: azure;
+    font-size: large;
+}
+
+.greet {
+    text-align: center;
+    margin-top: 100px;
+    color: azure;
+    font-size: xx-large;
+}
+
+
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat : no-repeat;
+    background-size : cover;
 }
