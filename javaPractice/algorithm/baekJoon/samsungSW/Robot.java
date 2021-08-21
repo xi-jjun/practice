@@ -1,95 +1,133 @@
 // 14503 baekJoon Gold5
-// 아직 못 품..
+// 2021 8/17 아직 못 품..
+// 2021 8/21 해결.
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.StringTokenizer;
-import java.lang.Math;
 
-class Robot{
+class Robot {
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
     static final int NOT_CLEANED_ROOM = 0;
     static final int WALL = 1;
     static final int CLEANED_ROOM = 2;
+    static final int OUT_OF_MAP = 3;
     static int[][] cleanMap; // 1:wall , 0:space
+    static int ROW = 0;
+    static int COL = 0;
     static int count = 0;
 
-    public static int[] wayFind(int r, int c, int d, int countWay) {
-        int[] rc = new int[2];
-
-        if(countWay == 5) {
-            if(d == 1) d = 3;
-            else d = Math.abs(d - 2);
-        }
-
-        if(d == 0) {
-            r--;
-        } else if(d == 1) {
-            c++;
-        } else if(d == 2) {
-            r++;
-        } else if(d == 3) {
-            c--;
-        }
-
-        rc[0] = r;
-        rc[1] = c;
-
-        return rc;
+    public static int find_d(int currentWay) {
+        if(currentWay == 0)
+            return 3;
+        else return currentWay - 1;
     }
 
-    // d= 0:N , 1:E , 2:S , 3:W
-    public static void cleanRoom(int r, int c, int d, int countWay) {
-        int room = cleanMap[r][c];
-        int[] temp = new int[2];
-        countWay++;
-        int leftRoom;
-        int or = r;
-        int oc = c;
+    public static int checkLeft(int x, int y, int current) {
+        int left = find_d(current);
+        int re = 0;
 
-        if(room == NOT_CLEANED_ROOM) {
-            cleanMap[r][c] = CLEANED_ROOM; // 현재 위치 청소
-            count++; // clean count
+        if(left == 0) {
+            if(x - 1 < 0) return OUT_OF_MAP;
+            else return cleanMap[x-1][y];
+        } else if(left == 1) {
+            if(y + 1 > COL - 1) return OUT_OF_MAP;
+            else return cleanMap[x][y+1];
+        } else if(left == 2) {
+            if(x + 1 > ROW - 1) return OUT_OF_MAP;
+            else return cleanMap[x+1][y];
+        } else if(left == 3) {
+            if(y - 1 < 0) return OUT_OF_MAP;
+            else return cleanMap[x][y-1];
         }
 
-        // 방향 전환 
-        if(d == 0) d = 3;
-        else d--;
+        return OUT_OF_MAP;
+    }
 
-        temp = wayFind(r, c, d, countWay);
-        r = temp[0];
-        c = temp[1];
+    public static boolean checkBehind(int r, int c, int d) {
+        if(d == 0) {
+            if(r+1 < ROW) {
+                if(cleanMap[r+1][c] == WALL) return false;
+                return true;
+            }
+            else return false;
+        } else if(d == 1) { 
+            if(c-1 >= 0) {
+                if(cleanMap[r][c-1] == WALL) return false;
+                return true;
+            }
+            else return false;
+        } else if(d == 2) {
+            if(r-1 >= 0) {
+                if(cleanMap[r-1][c] == WALL) return false;
+                return true;
+            }
+            else return false;
+        } else if(d == 3) {
+            if(c+1 < COL) {
+                if(cleanMap[r][c+1] == WALL) return false;
+                return true;
+            }
+            else return false;
+        }
+        return true;
+    }
 
-        leftRoom = cleanMap[r][c];
+    public static void cleanRoom(int r, int c, int d, int fourWayCheck) throws IOException {
+        int currentRoom = cleanMap[r][c];
+        int leftWay = find_d(d);
 
-        if(leftRoom == NOT_CLEANED_ROOM) {
-            cleanRoom(r, c, d, 0);
-            return;
-        } else if(leftRoom != NOT_CLEANED_ROOM && countWay < 4) {
-            cleanRoom(or, oc, d, countWay);
-            return;
-        } else if(leftRoom != NOT_CLEANED_ROOM) { // 4way clean or wall
-            if(leftRoom == WALL) return;
-
-
-            cleanRoom(r, c, d, 0);
-            return;
+        if(currentRoom == NOT_CLEANED_ROOM) {
+            count++; // 1. 현위치 청소
+            cleanMap[r][c] = CLEANED_ROOM;
         }
 
+        int leftRoom = checkLeft(r, c, d); // 왼쪽방이 청소됐는지 확인
+        
+        if(leftRoom == NOT_CLEANED_ROOM) { // 2-1 왼쪽방이 청소가 안됐다면 그 쪽으로 Go!!, then goto 1
+            if(leftWay == 0) {
+                cleanRoom(r-1, c, leftWay, 1);
+            } else if(leftWay == 1) {
+                cleanRoom(r, c+1, leftWay, 1);
+            } else if(leftWay == 2) {
+                cleanRoom(r+1, c, leftWay, 1);
+            } else if(leftWay == 3) {
+                cleanRoom(r, c-1, leftWay, 1);
+            }
+
+        } else if(leftRoom != NOT_CLEANED_ROOM && fourWayCheck != 5) { // 2-2 청소할 공간 X. 회전만하기
+            cleanRoom(r, c, leftWay, ++fourWayCheck);
+        } else if(leftRoom != NOT_CLEANED_ROOM && fourWayCheck % 5 == 0) { // 2-3 4방향 모두 청소OK or WALL, then 바라보는 방향d 유지한채로 1보 후퇴.
+            // 2-4 뒤로 못가면 STOP
+            if(checkBehind(r, c, d) == false) return; // END
+            else { // 2-3 4방향 모두 청소OK or WALL, then 바라보는 방향d 유지한채로 1보 후퇴.
+                if(d == 0) {
+                    cleanRoom(r+1, c, d, 1);
+                } else if(d == 1) {
+                    cleanRoom(r, c-1, d, 1);
+                } else if(d == 2) {
+                    cleanRoom(r-1, c, d, 1);
+                } else if(d == 3) {
+                    cleanRoom(r, c+1, d, 1);
+                }
+            }
+        }
+        return;
     }
 
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         String size = br.readLine(); // N, M
         StringTokenizer st1 = new StringTokenizer(size);
         int N = Integer.parseInt(st1.nextToken());
         int M = Integer.parseInt(st1.nextToken());
+        ROW = N;
+        COL = M;
         
         cleanMap = new int[N][M];
 
@@ -110,25 +148,11 @@ class Robot{
             }
         }
 
-
-
-        cleanRoom(r, c, d, 0);
-
-        bw.write(count + "");
-
-
-
-
-        bw.write("\n\n");
-
-        for(int i = 0; i < N; i++) {
-            for(int j = 0; j < M; j++) {
-                bw.write(cleanMap[i][j] + " ");
-            }
-            bw.write("\n");
-        }
+        cleanRoom(r, c, d, 1);
+        bw.write(count + "\n");
 
         bw.flush();
         bw.close();
+
     }
 }
