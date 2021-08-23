@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.lang.Math;
+import java.util.Collections;
 
 class WordMath{
     // seq 1 : max, seq 2 : max-1...
@@ -20,9 +21,11 @@ class WordMath{
             re[j++] = countArray[i];
         }
         
+        // Collections.sort(re, Collections.reverseOrder());
         Arrays.sort(re);
 
         int diff = re[27 - seq];
+        // Integer diff = re[seq];
 
         for(int i = 65; i < 91; i++) {
             if(diff == 0) {
