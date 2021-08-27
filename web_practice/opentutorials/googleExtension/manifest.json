@@ -1,0 +1,14 @@
+{
+    "name": "PLZ come on!",
+    "version": "1.0",
+    "description": "Gae MAng HAL!",
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+
+    "manifest_version": 2
+}
