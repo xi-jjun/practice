@@ -13,22 +13,38 @@
     }
 
     h1 {
-      text-align: center;
+      text-align: left;
       text-decoration: none;
+      margin-left: 150px;
+      margin-right: 20px;
+      /* border-bottom: 1px solid black; */
     }
 
     .list {
-      width: 100px;
+      width: 150px;
       align-items: left;
+      border-right: 1px solid black;
+      margin-right: 20px;
     }
 
     .main-box {
       display: inline-block;
       width: 70%;
       align-items: right;
-      margin-left: 50px;
       /* border-left: solid;
       border-left-width: thin; */
+    }
+
+    @media(max-width:800px) {
+      .grid .list {
+        display: none;
+      }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 200px 2fr;
+      border-top: 1px solid black;
     }
 
     aside {
@@ -40,26 +56,30 @@
 
   <body>
     <h1><a href="index.html" style="font-size: 64px;">WEB</a> </h1>
-    <aside class="list">
-      <ol>
-        <li><a href="1.html">HTML</a></li>
-        <li><a href="2.html">CSS</a></li>
-        <li><a href="3.html">JavaScript</a></li>
-      </ol>
-    </aside>
+    <div class="grid">
+      <div class="list">
+        <ol>
+          <li><a href="1.html">HTML</a></li>
+          <li><a href="2.html">CSS</a></li>
+          <li><a href="3.html">JavaScript</a></li>
+        </ol>
+      </div>
 
-    <div class="main-box">
-      <h2>WEB</h2>
+      <div class="main-box">
+        <h2>WEB</h2>
 
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/G4Hb00s3j40" title="YouTube video player" frameborder="10" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-      <p>
-        The World Wide Web (abbreviated WWW or the Web) is an information space where documents and other web resources are identified by Uniform Resource Locators (URLs), interlinked by hypertext links, and can be accessed via the Internet.[1]
-        English
-        scientist Tim Berners-Lee invented the World Wide Web in 1989. He wrote the first web browser computer program in 1990 while employed at CERN in Switzerland.[2][3] The Web browser was released outside of CERN in 1991, first to other research
-        institutions starting in January 1991 and to the general public on the Internet in August 1991.
-      </p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/G4Hb00s3j40" title="YouTube video player" frameborder="10" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+        <p>
+          The World Wide Web (abbreviated WWW or the Web) is an information space where documents and other web resources are identified by Uniform Resource Locators (URLs), interlinked by hypertext links, and can be accessed via the Internet.[1]
+          English
+          scientist Tim Berners-Lee invented the World Wide Web in 1989. He wrote the first web browser computer program in 1990 while employed at CERN in Switzerland.[2][3] The Web browser was released outside of CERN in 1991, first to other
+          research
+          institutions starting in January 1991 and to the general public on the Internet in August 1991.
+        </p>
+      </div>
     </div>
+
 
 
   </body>
