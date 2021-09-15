@@ -10,16 +10,14 @@ public class NumComp {
     static boolean[] visted;
 
     static boolean dfs(int x) {
-        if(!visted[x]) {
+        if (!visted[x]) {
             visted[x] = true;
 
             for (int i = 0; i < graph.get(x).size(); i++) {
                 int y = graph.get(x).get(i);
-                if (!visted[y]) {
-                    dfs(y);
-                    return true;
-                }
+                if (!visted[y]) dfs(y);
             }
+            return true;
         }
         return false;
     }
@@ -47,13 +45,11 @@ public class NumComp {
         }
 
         for (int i = 1; i <= N; i++) {
-            if (dfs(i)) {
-//                bw.write(i + " ");
-                count++;
-            }
+            if (dfs(i)) count++;
+            if (!visted[i]) count++;
         }
 
-        bw.write(count + "\n" + graph.size());
+        bw.write(count + "\n");
         bw.flush();
         bw.close();
     }
