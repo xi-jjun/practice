@@ -5,15 +5,14 @@ import java.util.*;
 
 // baekJoon 3190 Gold5 뱀
 public class G3190 {
+    static final int EMPTY = 0;
     static final int APPLE = 1;
     static int[][] board;
     static int N, K, L;
     static boolean[][] body;
     static int[] dx = {-1, 0, 1, 0}; // N E S W
     static int[] dy = {0, 1, 0, -1};
-    static Queue<Point> q;
     static Deque<Point> dq;
-    static boolean STOP = false;
     static int countSeconds = 1;
 
     static class Point {
@@ -37,13 +36,12 @@ public class G3190 {
         int nextY = p.y + dy[p.dir];
 
         if (nextX < 0 || nextY >= N || nextX >= N || nextY < 0 || body[nextX][nextY]) {
-            STOP = true;
             return false;
         }
 
-//        q.offer(new Point(nextX, nextY, p.dir)); // head to next
         dq.add(new Point(nextX, nextY, p.dir));
         body[nextX][nextY] = true;
+
         return true;
     }
 
@@ -97,7 +95,7 @@ public class G3190 {
             infoIndex++;
         }
 
-        int tempSeq = 1;
+//        int tempSeq = 1;
 
         while (true) {
             Point head = dq.peekLast();
@@ -109,6 +107,8 @@ public class G3190 {
                 if (!checkApple(movedHead)) {
                     Point rm = dq.removeFirst();
                     body[rm.x][rm.y] = false;
+                } else { // Apple is existed
+                    board[movedHead.x][movedHead.y] = EMPTY;
                 }
             }
 
@@ -118,15 +118,15 @@ public class G3190 {
             }
             countSeconds++;
 
-            bw.write("START " + (tempSeq++) + "\n");
-            for (boolean[] a : body) {
-                for (boolean b : a) {
-                    if (b) bw.write("* ");
-                    else bw.write("0 ");
-                }
-                bw.write("\n");
-            }
-            bw.write("\n\n");
+//            bw.write("START " + (tempSeq++) + "\n");
+//            for (boolean[] a : body) {
+//                for (boolean b : a) {
+//                    if (b) bw.write("* ");
+//                    else bw.write("0 ");
+//                }
+//                bw.write("\n");
+//            }
+//            bw.write("\n\n");
         }
         bw.write(countSeconds + "");
 
