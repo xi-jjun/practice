@@ -8,6 +8,7 @@ import java.util.StringTokenizer;
 // baekJoon 2178 silver1 미로탐색
 // https://cocoon1787.tistory.com/115 참고
 public class S2178 {
+
     static int N, M;
     static int[][] map, distance;
     static final int WALL = 0;
