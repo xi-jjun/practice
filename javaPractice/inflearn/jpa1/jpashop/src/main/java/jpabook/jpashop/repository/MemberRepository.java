@@ -15,7 +15,8 @@ public class MemberRepository {
     private EntityManager em;
 
     public void save(Member member) {
-        em.persist(member);
+        em.persist(member); // persist 만 한다고 해서 INSERT query 가 실행되는건 아니다.
+
     }
 
     public Member findOne(Long id) {
