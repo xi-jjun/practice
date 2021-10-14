@@ -36,7 +36,7 @@ public class S10814 {
     private static class Member {
         private final Integer age;
         private final String name;
-        
+
         public Member(Integer age, String name) {
             this.age = age;
             this.name = name;
