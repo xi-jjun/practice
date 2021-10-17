@@ -6,7 +6,7 @@ public class Lv2 {
     public static void main(String[] args) {
         String[] phoneBook1 = {"119", "114", "112", "123223123", "1231231234"};
         String[] phoneBook2 = {"123", "456", "789"};
-        String[] phoneBook3 = {"12", "123", "1235", "567", "88"};
+        String[] phoneBook3 = {"11", "123", "1235", "567", "88"};
 
 //        System.out.println("phoneBook3.hashCode() = " + phoneBook3[0].hashCode());
 //        System.out.println("phoneBook3.hashCode() = " + phoneBook3[1].substring(0,2).hashCode() + " " + phoneBook3[1].substring(0,1));
@@ -60,7 +60,7 @@ public class Lv2 {
             if (book.containsKey(phone.substring(0, minLen))) {
                 int index = 0;
                 boolean ok = true;
-                String str1 = book.get(phone.substring(0, minLen));
+                String str1 = book.get(phone.substring(0, minLen)); // '12' '123'
 
                 for (String s1 : str1.split("")) {
                     if (s1.charAt(0) != phone.charAt(index++)) ok = false;
