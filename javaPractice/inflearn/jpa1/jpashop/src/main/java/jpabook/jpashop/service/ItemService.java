@@ -21,6 +21,14 @@ public class ItemService {
         itemRepository.save(item);
     }
 
+    @Transactional
+    public void updateItem(Long itemId, String name, int price, int stockQuantity) {
+        Item item = itemRepository.findOne(itemId);
+        item.setName(name);
+        item.setPrice(price);
+        item.setStockQuantity(stockQuantity);
+    }
+
     // @Transactional 이 없이 때문에 맨 위의 readonly 가 된다.
     public List<Item> findItems() {
         return itemRepository.findAll();

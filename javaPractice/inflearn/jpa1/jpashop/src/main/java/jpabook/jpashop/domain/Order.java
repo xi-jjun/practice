@@ -34,6 +34,7 @@ public class Order {
 
     private LocalDateTime orderDate;
 
+    @Enumerated(EnumType.STRING)
     private OrderStatus status; // Enum 주문 상태 [ORDER, CANCEL]
 
     //==연관 관계 method==// 양 방향 세팅

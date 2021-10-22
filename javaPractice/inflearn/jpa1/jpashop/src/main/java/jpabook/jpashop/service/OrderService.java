@@ -51,6 +51,7 @@ public class OrderService {
     /**
      * cancel
      */
+    @Transactional // 재준아 이걸 처 빼서 30분을 버리냐. 따라 하는 것도 못하냐; 처 맞을려고 진짜로 김재준
     public void cancelOrder(Long orderId) {
         // order entity 조회
         Order order = orderRepository.findOne(orderId);
@@ -59,7 +60,7 @@ public class OrderService {
     }
 
     // search
-//    public List<Order> findOrders(OrderSearch orderSearch) {
-//        return orderRepository.findAll(orderSearch);
-//    }
+    public List<Order> findOrders(OrderSearch orderSearch) {
+        return orderRepository.findAllByCriteria(orderSearch);
+    }
 }
