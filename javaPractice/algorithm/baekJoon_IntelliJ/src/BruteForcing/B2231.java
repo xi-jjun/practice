@@ -8,6 +8,20 @@ public class B2231 {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
 
+        for (int i = 1; i <= N; i++) {
+            int sum = 0;
+            int constructor = i;
+            while (constructor != 0) {
+                sum += constructor % 10;
+                constructor /= 10;
+            }
 
+            if (sum + i == N) {
+                System.out.println(i);
+                return;
+            }
+        }
+
+        System.out.println("0");
     }
 }
