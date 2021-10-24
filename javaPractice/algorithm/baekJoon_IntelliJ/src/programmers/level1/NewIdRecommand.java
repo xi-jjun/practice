@@ -54,7 +54,7 @@ public class NewIdRecommand {
     }
 
     public static void main(String[] args) {
-        String id = "...............$$$.......";
+        String id = "...........([{}])?^..-_.~!@#$%^&*()=+[{]}:?,<>/..$$$.......";
         System.out.println("solution(id) = " + solution(id));
         StringBuilder sb = new StringBuilder(id);
         System.out.println("sb.toString().charAt(sb.length()-1) = " + sb.toString().charAt(sb.length() - 1));
