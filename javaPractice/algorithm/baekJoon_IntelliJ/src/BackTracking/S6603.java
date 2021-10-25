@@ -17,6 +17,7 @@ public class S6603 {
             bw.write("\n");
             return;
         }
+
         for (int i = at; i < S.length; i++) {
             if (!visited[i]) {
                 ans[depth] = S[i];
@@ -37,7 +38,7 @@ public class S6603 {
             visited = new boolean[k];
             for (int i = 0; i < k; i++) S[i] = Integer.parseInt(st.nextToken());
 
-            backTracking(0,0);
+            backTracking(0, 0);
             bw.write("\n");
         }
 
