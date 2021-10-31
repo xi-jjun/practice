@@ -57,19 +57,36 @@ public class JpaMain {
 //        } finally {
 //            em.close(); // 반드시 종료해줘야만 한다.
 //        }
+
+
+//        try {
+//            // new == 비영속 상태. member 라는 객체가 생성만 됐을 뿐 현재 JPA와는 아무 관련이 없다.
+//            Member member = new Member();
+//            member.setId(2L);
+//            member.setName("UserB");
+//
+//            // 영속 상태 - DB에 저장된 것 아님.
+//            em.persist(member); // 이 코드일 때 Query 가 날라가지 않는다.
+//
+////            em.detach(member); // member 를 다시 영속성 컨텍스트에서 지운다.
+////            em.remove(member); // 실제 DB에서 지운다.
+//
+//            tx.commit(); // 이 시점에 영속성에 있는 객체의 Query를 날린다.
+//        } catch (Exception e) {
+//            tx.rollback();
+//        } finally {
+//            em.close(); // 반드시 종료해줘야만 한다.
+//        }
+
+
         try {
-            // new == 비영속 상태. member 라는 객체가 생성만 됐을 뿐 현재 JPA와는 아무 관련이 없다.
-            Member member = new Member();
-            member.setId(2L);
-            member.setName("UserB");
+            Member member = new Member(201L, "김재준");
+            em.persist(member); // tx.commit 전까지는 query 를 미리 볼 수 없다.
 
-            // 영속 상태 - DB에 저장된 것 아님.
-            em.persist(member); // 이 코드일 때 Query 가 날라가지 않는다.
+            em.flush(); // 이 때 DB 에 영속성 컨텍스트의 변경내용이 반영이 된다.
 
-//            em.detach(member); // member 를 다시 영속성 컨텍스트에서 지운다.
-//            em.remove(member); // 실제 DB에서 지운다.
-
-            tx.commit(); // 이 시점에 영속성에 있는 객체의 Query를 날린다.
+            System.out.println("==========");
+            tx.commit();
         } catch (Exception e) {
             tx.rollback();
         } finally {
