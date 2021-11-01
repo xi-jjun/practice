@@ -80,12 +80,11 @@ public class JpaMain {
 
 
         try {
-            Member member = new Member(201L, "김재준");
+            Member member = new Member(202L, "김재준");
             em.persist(member); // tx.commit 전까지는 query 를 미리 볼 수 없다.
 
             em.flush(); // 이 때 DB 에 영속성 컨텍스트의 변경내용이 반영이 된다.
 
-            System.out.println("==========");
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
