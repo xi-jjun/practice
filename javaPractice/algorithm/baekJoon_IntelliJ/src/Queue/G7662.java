@@ -2,7 +2,6 @@ package Queue;
 
 import java.io.*;
 import java.util.*;
-import java.util.function.Predicate;
 
 // baekJoon 7662 Gold5 이중 우선순위 큐
 // Java 기본기가 부족해서 푸는데 오래걸린 문제
