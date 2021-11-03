@@ -1,4 +1,4 @@
-package DFS;
+package floyd_warshall;
 
 import java.io.BufferedReader;
 import java.io.IOException;
