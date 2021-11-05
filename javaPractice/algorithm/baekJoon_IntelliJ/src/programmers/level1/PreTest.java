@@ -3,8 +3,8 @@ package programmers.level1;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.OptionalInt;
 
+// programmers 완전탐색 > 모의고사
 public class PreTest {
     public static int[] solution(int[] answers) {
         int[] count = new int[4];
