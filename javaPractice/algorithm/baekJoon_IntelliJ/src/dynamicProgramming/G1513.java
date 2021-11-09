@@ -2,7 +2,7 @@ package dynamicProgramming;
 
 import java.io.*;
 import java.util.StringTokenizer;
-
+// 일단 푸는 중
 public class G1513 {
     static final int[] dx = {0, 1};
     static final int[] dy = {1, 0};
@@ -18,8 +18,8 @@ public class G1513 {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
         C = Integer.parseInt(st.nextToken());
-        map = new int[N][M];
-        visited = new boolean[N][M];
+        map = new int[N+1][M+1];
+        visited = new boolean[N+1][M+1];
         count = new int[C + 1];
 
         getFunLocation(br);
