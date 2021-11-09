@@ -1,5 +1,7 @@
 package hellojpa;
 
+import hellojpa.domain.Member;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -13,6 +15,20 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction(); // JPA에서 모든 data의 수정은 transaction 안에서 발생해야 한다.
         tx.begin();
 
+        try {
+            Member member = new Member();
+            member.setName("UserB");
+            em.persist(member);
+            System.out.println("====");
+
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            tx.rollback();
+        } finally {
+            em.close();
+        }
+//
         // CREATE
 //        try {
 //            Member member = new Member();
@@ -79,23 +95,23 @@ public class JpaMain {
 //        }
 
 
-        try {
-            Member member = new Member("김재준");
-            Board board = new Board("title!!!", "conteeeeeeeeent!!");
-            System.out.println("===========");
-            System.out.println("member = " + member.getId());
-            em.persist(member); // tx.commit 전까지는 query 를 미리 볼 수 없다.
-            System.out.println("member = " + member.getId());
-            em.persist(board);
-            System.out.println("===========");
-            em.flush(); // 이 때 DB 에 영속성 컨텍스트의 변경내용이 반영이 된다.
-
-            tx.commit();
-        } catch (Exception e) {
-            tx.rollback();
-        } finally {
-            em.close(); // 반드시 종료해줘야만 한다.
-        }
+//        try {
+//            Member member = new Member("김재준");
+//            Board board = new Board("title!!!", "conteeeeeeeeent!!");
+//            System.out.println("===========");
+//            System.out.println("member = " + member.getId());
+//            em.persist(member); // tx.commit 전까지는 query 를 미리 볼 수 없다.
+//            System.out.println("member = " + member.getId());
+//            em.persist(board);
+//            System.out.println("===========");
+//            em.flush(); // 이 때 DB 에 영속성 컨텍스트의 변경내용이 반영이 된다.
+//
+//            tx.commit();
+//        } catch (Exception e) {
+//            tx.rollback();
+//        } finally {
+//            em.close(); // 반드시 종료해줘야만 한다.
+//        }
 
         emf.close();
     }
