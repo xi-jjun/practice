@@ -3,7 +3,8 @@ package Math;
 import java.io.*;
 import java.util.StringTokenizer;
 
-// 아직 못 품
+// baekJoon 6064 silver1 카잉 달력
+// 정신나가버리게 만든 문제
 public class S6064 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -17,9 +18,8 @@ public class S6064 {
             int x = Integer.parseInt(st.nextToken());
             int y = Integer.parseInt(st.nextToken());
 
-//            int maxCount = getMaxCount(M, N);
-//            System.out.println("maxCount = " + maxCount);
-            int answer = getAnswer(x, y, M, N);
+            int maxCount = getMaxCount(M, N);
+            int answer = getAnswer(x, y, M, N, maxCount);
 
             bw.write(answer + "\n");
         }
@@ -28,41 +28,28 @@ public class S6064 {
         bw.close();
     }
 
-    private static int getAnswer(int x, int y, int M, int N) {
-//        if (Math.abs(x - y) % 2 != Math.abs(M - N) % 2) return -1;
+    private static int getAnswer(int x, int y, int M, int N, int count) {
+        int startY = x;
+        int answer = x;
 
-        int startX = 1;
-        int startY = 1;
-        int answer = 1;
-        int a=1000;
-
-        while (a-->0) {
-            if (startX == x && startY == y) {
-                return answer;
-            }
-            startX = startX + 1 > M ? 1 : startX + 1;
-            startY = startY + 1 > N ? 1 : startY + 1;
-            answer++;
+        for (int i = 0; i < N; i++) {
+            int yy = startY % N == 0 ? N : startY % N;
+            if (yy == y) break;
+            startY = yy + M;
+            answer += M;
         }
 
-        return -1;
+        if (answer > count) return -1;
+
+        return answer;
     }
 
     private static int getMaxCount(int m, int n) {
-        if (m == n) return m;
+        return m * n / gcd(m, n);
+    }
 
-        int x = 1;
-        int M = Math.min(m, n);
-        int N = Math.max(m, n);
-        int diff = N - M;
-
-        int maxCount = 0;
-        while (true) {
-            x = x + diff > M ? (x + diff) % M : x + diff;
-            if (x == 1) break;
-            else maxCount += N;
-        }
-
-        return maxCount;
+    private static int gcd(int m, int n) {
+        if (n == 0) return m;
+        else return gcd(n, m % n);
     }
 }
