@@ -32,10 +32,6 @@ public class TV {
         return power;
     }
 
-    public void setPower(boolean power) {
-        this.power = power;
-    }
-
     public void goChannel(int channel) {
         this.channel = channel;
         System.out.println("현재 채널은 " + this.channel + " 입니다");

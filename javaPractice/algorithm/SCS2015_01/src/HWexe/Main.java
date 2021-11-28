@@ -12,17 +12,30 @@ public class Main {
         System.out.println("");
 
         // 사용자가 TV의 채널을 1만큼 증가시키고 싶음.
+        userCommand = "빅스비"; // 다시 빅스비 호출
+        aiSpeaker.wakeUp(userCommand); // 다시 빅스비 호출
         userCommand = "TV Plus";
         aiSpeaker.controlTv(userCommand, samsungTv);
         System.out.println("");
 
         // 사용자가 TV의 채널을 1만큼 감소시키고 싶음.
+        userCommand = "빅스비";
+        aiSpeaker.wakeUp(userCommand);
         userCommand = "TV Minus";
         aiSpeaker.controlTv(userCommand, samsungTv);
         System.out.println("");
 
         // 사용자가 TV의 채널을 46으로 이동하고 싶음.
-        userCommand = "TV 46";
+        userCommand = "빅스비";
+        aiSpeaker.wakeUp(userCommand);
+        userCommand = "Channel 46";
+        aiSpeaker.controlTv(userCommand, samsungTv);
+        System.out.println("");
+
+        // 사용자가 TV 를 종료하고 싶음.
+        userCommand = "빅스비";
+        aiSpeaker.wakeUp(userCommand);
+        userCommand = "TV off";
         aiSpeaker.controlTv(userCommand, samsungTv);
         System.out.println("");
     }
