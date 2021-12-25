@@ -1,0 +1,15 @@
+
+b
+java:S3008"LRename this field "A" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ö³´‰
+b
+java:S3008"LRename this field "B" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ö³´‰
+b
+java:S3008"LRename this field "C" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ö³´‰
+T
+java:S1659">Declare "B" and all following declarations on a separate line.(ö³´‰
+f
+java:S1450"PRemove the "A" field and declare it as a local variable in the relevant methods.(ö³´‰
+f
+java:S1450"PRemove the "B" field and declare it as a local variable in the relevant methods.(ö³´‰
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ûÄÏ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(²İ”¡

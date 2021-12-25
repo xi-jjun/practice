@@ -4,10 +4,10 @@ public class QuickSort {
     static int[] data = {7, 5, 9, 0, 3, 1, 6, 2, 4, 8};
 
     static void quickSort(int[] data, int start, int end) {
-        if (start >= end) return;
+        if (start >= end) return; // 시작 지점이 끝 지점의 index 보다 크면 교차된 것이므로 함수 종료.
 
-        int pivot = start;
-        int left = start + 1;
+        int pivot = start; // pivot값의 index는 배열의 맨 처음 위치
+        int left = start + 1; //
         int right = end;
 
         while (left <= right) {

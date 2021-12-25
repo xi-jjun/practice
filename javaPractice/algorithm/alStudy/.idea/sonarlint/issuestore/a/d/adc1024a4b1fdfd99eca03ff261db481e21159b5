@@ -1,0 +1,7 @@
+
+F
+java:S1481"+Remove this unused "answer" local variable.(þùŽ›þÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(¤ÒŠû
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ø´è‹ýÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(ƒÔÂÝÿÿÿÿÿ
+S	java:S106+"9Replace this use of System.out or System.err by a logger.(ô°Êÿÿÿÿÿ

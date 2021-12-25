@@ -1,0 +1,11 @@
+
+g
+java:S3008"LRename this field "N" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(î¸­üÿÿÿÿ
+p
+java:S3008"URename this field "DanJiIndex" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(î¸­üÿÿÿÿ
+b
+java:S1659"GDeclare "DanJiIndex" and all following declarations on a separate line.(î¸­üÿÿÿÿ
+N	java:S106!"9Replace this use of System.out or System.err by a logger.(ûÄÏ
+V	java:S125<"<This block of commented-out lines of code should be removed.(°òöÕÿÿÿÿÿ
+0
+java:S1220""Move this file to a named package.

@@ -1,0 +1,22 @@
+
+Q
+java:S2209"5Change this instance-reference to a static reference.(¬ÉÄ38·Ü£æÙ/
+U	java:S106"9Replace this use of System.out or System.err by a logger.(¹Óç—8®™“æÙ/
+R
+java:S2209"5Change this instance-reference to a static reference.(¡‰ÉÊ8¸Ü£æÙ/
+R
+java:S2209"5Change this instance-reference to a static reference.(ÏÉ˜Ğ8¸Ü£æÙ/
+Q
+java:S2209"5Change this instance-reference to a static reference.(°ºõ=8¹Ü£æÙ/
+W
+java:S2209"5Change this instance-reference to a static reference.(µÂïîüÿÿÿÿ8¹Ü£æÙ/
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ôè»8˜ÏŸæÙ/
+Z	java:S106 "9Replace this use of System.out or System.err by a logger.(¾ùôŒùÿÿÿÿ8šÏŸæÙ/
+o	java:S100#"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Óò¶¼øÿÿÿÿ8™ÏŸæÙ/
+U	java:S106%"9Replace this use of System.out or System.err by a logger.(› ½8›ÏŸæÙ/
+K
+java:S2140*")Use "java.util.Random.nextInt()" instead.(Î¸ºÂûÿÿÿÿ8›ÏŸæÙ/
+U	java:S106,"9Replace this use of System.out or System.err by a logger.(Ç‘ñ›8œÏŸæÙ/
+Z	java:S1062"9Replace this use of System.out or System.err by a logger.(Æ«·ıÿÿÿÿ8¾›¢æÙ/
+y	java:S127-"XRefactor the code in order to not assign to this loop counter from within the loop body.(˜‡Âúÿÿÿÿÿ8œÏŸæÙ/
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ü€…àûÿÿÿÿ

@@ -1,0 +1,9 @@
+
+t
+java:S1450"YRemove the "speedLimit" field and declare it as a local variable in the relevant methods.(°¦œÍıÿÿÿÿ
+D
+java:S2140")Use "java.util.Random.nextInt()" instead.(à„çÈùÿÿÿÿ
+D
+java:S2140	")Use "java.util.Random.nextInt()" instead.(‡è¸Ùıÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(›å¨Â
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Æàç†

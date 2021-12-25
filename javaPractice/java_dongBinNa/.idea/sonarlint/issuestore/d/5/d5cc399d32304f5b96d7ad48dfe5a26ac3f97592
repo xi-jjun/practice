@@ -1,0 +1,25 @@
+
+M
+java:S1854"7Remove this useless assignment to local variable "sys".(ê¸ëŒ
+R
+java:S1854"7Remove this useless assignment to local variable "ins".(´ßğûÿÿÿÿ
+S
+java:S1854"=Remove this useless assignment to local variable "startTime".(ÄıÖÇ
+Q
+java:S1854'";Remove this useless assignment to local variable "endTime".(Ú¨
+<
+java:S1659"!Declare "sys" on a separate line.(“öòœüÿÿÿÿ
+@
+java:S1659"%Declare "endTime" on a separate line.(¢ùŒºşÿÿÿÿ
+C
+java:S1481"(Remove this unused "sys" local variable.(“öòœüÿÿÿÿ
+I
+java:S1481".Remove this unused "startTime" local variable.(¢ùŒºşÿÿÿÿ
+G
+java:S1481",Remove this unused "endTime" local variable.(¢ùŒºşÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Ö½§ úÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ŞÒ—üÿÿÿÿ
+S	java:S106""9Replace this use of System.out or System.err by a logger.(Ö½§ úÿÿÿÿ
+S	java:S106#"9Replace this use of System.out or System.err by a logger.(ŞÒ—üÿÿÿÿ
+S	java:S106%"9Replace this use of System.out or System.err by a logger.(Ö½§ úÿÿÿÿ
+l	java:S127"XRefactor the code in order to not assign to this loop counter from within the loop body.(¨…ÄK

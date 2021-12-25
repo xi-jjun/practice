@@ -1,6 +1,6 @@
 package programmers.Test0923;
 
-// Test PASS
+// test.Test PASS
 public class Solution2 {
     static int solution(int n) {
         int answer = 0;
