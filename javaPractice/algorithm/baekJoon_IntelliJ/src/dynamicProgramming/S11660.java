@@ -1,4 +1,4 @@
-package Math;
+package dynamicProgramming;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -11,23 +11,15 @@ public class S11660 {
 	static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	static int[][] map;
-	static int N, M;
+	static int N, M, x1, x2, y1, y2;
 
 	public static void main(String[] args) throws IOException {
 		getNM();
 		setMap();
 
 		for (int i = 0; i < M; i++) {
-			String[] coords = br.readLine().split(" ");
-			int x1 = Integer.parseInt(coords[0]);
-			int y1 = Integer.parseInt(coords[1]);
-			int x2 = Integer.parseInt(coords[2]);
-			int y2 = Integer.parseInt(coords[3]);
-			int start = map[x1][y1];
-			int n = y2 - y1 + 1;
-			int S = (2 * start + n - 1) * n / 2;
-			int many = x2 - x1 + 1;
-			int answer = S * many + (n * (many * (many - 1)) / 2);
+			getCoords();
+			int answer = map[x2][y2] - (map[x1 - 1][y2] + map[x2][y1 - 1] - map[x1 - 1][y1 - 1]);
 			bw.write(answer + "\n");
 		}
 
@@ -35,12 +27,20 @@ public class S11660 {
 		bw.close();
 	}
 
+	private static void getCoords() throws IOException {
+		String[] coords = br.readLine().split(" ");
+		x1 = Integer.parseInt(coords[0]);
+		y1 = Integer.parseInt(coords[1]);
+		x2 = Integer.parseInt(coords[2]);
+		y2 = Integer.parseInt(coords[3]);
+	}
+
 	private static void setMap() throws IOException {
 		map = new int[N + 1][N + 1];
 		for (int i = 1; i <= N; i++) {
 			String[] numbers = br.readLine().split(" ");
 			for (int j = 1; j <= N; j++) {
-				map[i][j] = Integer.parseInt(numbers[j - 1]);
+				map[i][j] = map[i - 1][j] + map[i][j - 1] - map[i - 1][j - 1] + Integer.parseInt(numbers[j - 1]);
 			}
 		}
 	}
