@@ -11,13 +11,13 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 // baekJoon 1753 Gold5 최단 경로
+// https://sskl660.tistory.com/59 참고
 public class G1753 {
 	static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	static int V, E, K;
 	static int u, v, w;
 	static int[] distance;
-	static boolean[] visited;
 	static ArrayList<ArrayList<Node>> graph = new ArrayList<>();
 
 	public static void main(String[] args) throws IOException {
@@ -51,11 +51,7 @@ public class G1753 {
 
 	private static void printResult() throws IOException {
 		for (int i = 1; i <= V; i++) {
-			if (distance[i] == Integer.MAX_VALUE) {
-				bw.write("INF\n");
-			} else {
-				bw.write(distance[i] + "\n");
-			}
+			bw.write((distance[i] == Integer.MAX_VALUE ? "INF" : distance[i]) + "\n");
 		}
 	}
 
@@ -65,7 +61,6 @@ public class G1753 {
 		E = Integer.parseInt(info[1]);
 		K = Integer.parseInt(br.readLine());
 
-		visited = new boolean[V + 1];
 		distance = new int[V + 1];
 
 		for (int i = 0; i < V + 1; i++) {
