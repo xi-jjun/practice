@@ -1,13 +1,0 @@
-
-o
-java:S3776	"RRefactor this method to reduce its Cognitive Complexity from 43 to the 15 allowed.(œû¿Ø8ÓŒÔ•Ü/
-U	java:S106:"9Replace this use of System.out or System.err by a logger.(ô¤„å8àŒÔ•Ü/
-z	java:S135"YReduce the total number of break and continue statements in this loop to use at most one.(ÔÃ¨Åşÿÿÿÿ8áŒÔ•Ü/
-u	java:S135("YReduce the total number of break and continue statements in this loop to use at most one.(Ê±‰°8áŒÔ•Ü/
-t	java:S127"XRefactor the code in order to not assign to this loop counter from within the loop body.(©õ¢Ô8áŒÔ•Ü/
-t	java:S127-"XRefactor the code in order to not assign to this loop counter from within the loop body.(©õ¢Ô8áŒÔ•Ü/
-t	java:S1274"XRefactor the code in order to not assign to this loop counter from within the loop body.(Ê¨Ì8áŒÔ•Ü/
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»ì£‹8âŒÔ•Ü/
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×ïšÄ8âŒÔ•Ü/
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹¼†Òûÿÿÿÿ8âŒÔ•Ü/
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(…ß8äŒÔ•Ü/
