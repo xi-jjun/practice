@@ -1,23 +1,23 @@
-package produce_consumer;
+package processSynchronization.produce_consumer.moniter;
 
-public class Producer extends Thread{
+public class Consumer extends Thread {
     private Buffer buffer;
     private int N;
 
-    public Producer(Buffer buffer, int N) {
+    public Consumer(Buffer buffer, int N) {
         this.buffer = buffer;
         this.N = N;
     }
 
+    @Override
     public void run() {
+        int item = 0;
         for (int i = 0; i < N; i++) {
             try {
-                buffer.insert(i);
-                System.out.println("Insert : " + i);
+                item = buffer.remove();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-//            buffer.insert(i);
         }
     }
 }

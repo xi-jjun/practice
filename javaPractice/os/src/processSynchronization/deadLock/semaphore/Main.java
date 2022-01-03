@@ -1,4 +1,4 @@
-package deadLock;
+package processSynchronization.deadLock.semaphore;
 
 import java.util.concurrent.Semaphore;
 

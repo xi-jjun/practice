@@ -1,4 +1,4 @@
-package produce_consumer;
+package processSynchronization.produce_consumer.semaphore;
 
 import java.util.concurrent.Semaphore;
 

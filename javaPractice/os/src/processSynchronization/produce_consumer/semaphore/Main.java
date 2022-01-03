@@ -1,4 +1,4 @@
-package produce_consumer;
+package processSynchronization.produce_consumer.semaphore;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
