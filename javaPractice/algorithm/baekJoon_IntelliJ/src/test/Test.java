@@ -1,55 +1,51 @@
 package test;
 
 import java.util.*;
-import java.util.regex.Pattern;
 
 public class Test {
+	static List<Integer> a = Arrays.asList(1, 2, 3, 5);
 	public static void main(String[] args) {
-		String info = "[콜라,1500,20]";//;[사이다,1000,10]";
-		String[] infos = {
-				"[콜라,1500,20]",
-				"[콜1라,1500,20]",
-				"[콜1라11,1500,20]",
-				"[콜1라ASD1fk2,1500,20]",
-				"[12콜we1라,1500,20]",
-				"[qwe12콜we1라,1500,20,qwe12콜we1라,1500,20]",
-				"[qwe12콜we1라,1500,20],[qwe12콜we1라,1500,20]",
-				"[qwe12콜we1라,a1500,20]",
-				"[qwe12콜we1라,1a500,20]",
-				"[qwe12콜we1라,1500,2r0]",
-				"[콜라,1500000000000000,20]",
-				"[콜라,1500,200000000000000000]",
-				"[콜라라라라라라랄라라라라라라라라라라랄라라라라라라라라라라라랄라라라라라라라라라라라라라라라라ㅏㄹ라라라,1500,200]",
-				"[콜라라라라라라랄라라라라라라라라라라랄라라라라라라라라라라라랄라라라라라라라라라라라라라라라라라라라,1500,200]",
-				"[,1500,20]",
-				"콜라,1500,20]",
-				"[콜라,1500,20",
-				"[콜라,1500,20,10]",
-				"[콜라,,20]",
-				"[콜라,1500,]",
-				"[콜라,,]",
-				"[콜라,]",
-				"[,,]",
-				"[,,,]",
-				"[콜라,1500,20]]",
-				"[[콜라,1500,20]",
-				"[[[콜라,1500,20]",
-				"[[[]]]",
-				"[][[]]]",
-				"[콜라,1,20]]",
-				"[콜라,150020]]",
-				"[콜라1500,20]]"
-		};
-		String checker = "(^\\[)([가-힣a-zA-Z0-9]{1,10}),(\\d{2,10}),(\\d{1,10})(\\]$)";
-		for (String i : infos) {
-			System.out.println(i+" : "+Pattern.matches(checker, i));
+		List<List<Integer>> recentOutputs = new ArrayList<>();
+		List<List<Integer>> aaa = new ArrayList<>();
+
+		List<Integer> b = Arrays.asList(1, 2, 3, 5);
+		List<Integer> c = Arrays.asList(1, 2, 4, 4);
+		List<Integer> d = Arrays.asList(1, 2, 4, 4);
+		List<Integer> e = Arrays.asList(2, 2);
+		List<Integer> f = Arrays.asList(2, 1);
+
+		List<Integer> ooo = Arrays.asList(1, 2);
+		aaa.add(e);
+		aaa.add(f);
+		boolean b2 = aaa.stream().anyMatch(ll -> ll.equals(ooo));
+		System.out.println("b2 = " + b2);
+
+		List<Integer> output = Arrays.asList(1, 2, 3, 4);
+		recentOutputs.add(a);
+		recentOutputs.add(a);
+		recentOutputs.add(a);
+		recentOutputs.add(b);
+		recentOutputs.add(c);
+		recentOutputs.add(d);
+		for (List<Integer> recentOutput : recentOutputs) {
+			for (Integer out : recentOutput) {
+				System.out.print(out+" ");
+			}
+			System.out.println();
 		}
-//		boolean regex = Pattern.matches("^\\[\\S+{1,20}\\,*\\d{2,10}\\,*\\d{1,10}\\]$", info);
-//		String info2 = "123111";
-//		boolean regex2 = Pattern.matches("^\\d{0,6}", info2); // 숫자만 통과
-//
-//		System.out.println("regex = " + regex);
-//		System.out.println("regex2 = " + regex2);
+		System.out.println("===");
+		a = Arrays.asList(0, 0);
+		for (List<Integer> recentOutput : recentOutputs) {
+			for (Integer out : recentOutput) {
+				System.out.print(out+" ");
+			}
+			System.out.println();
+		}
+		System.out.println(recentOutputs.size());
+
+		boolean b1 = recentOutputs.stream()
+				.anyMatch(list -> list.equals(output));
+		System.out.println(b1);
 	}
 
 }
