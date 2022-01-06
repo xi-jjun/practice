@@ -22,6 +22,7 @@ public class MemberListControllerV1 implements ControllerV1 {
 		// model 에 데이터 저장
 		request.setAttribute("members", members);
 
+		// view
 		String viewPath = "/WEB-INF/views/members.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
 		dispatcher.forward(request, response);
