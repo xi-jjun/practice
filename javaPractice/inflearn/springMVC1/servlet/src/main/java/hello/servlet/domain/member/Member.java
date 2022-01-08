@@ -3,7 +3,8 @@ package hello.servlet.domain.member;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+@Getter
+@Setter
 public class Member {
 	private Long id;
 	private String username;
@@ -15,5 +16,11 @@ public class Member {
 	public Member(String username, int age) {
 		this.username = username;
 		this.age = age;
+	}
+
+	public String toString() {
+		return "ID : " + id + "\n"
+				+ "name : " + username + "\n"
+				+ "age : " + age;
 	}
 }

@@ -20,8 +20,8 @@ public class FrontControllerV4 extends HttpServlet {
 	private final Map<String, ControllerV4> controllerV4Map = new HashMap<>();
 
 	public FrontControllerV4() {
-		controllerV4Map.put("/front-controller/v4/new-form", new MemberFormControllerV4());
-		controllerV4Map.put("/front-controller/v4/save", new MemberSaveControllerV4());
+		controllerV4Map.put("/front-controller/v4/members/new-form", new MemberFormControllerV4());
+		controllerV4Map.put("/front-controller/v4/members/save", new MemberSaveControllerV4());
 		controllerV4Map.put("/front-controller/v4/members", new MemberListControllerV4());
 	}
 
@@ -35,7 +35,7 @@ public class FrontControllerV4 extends HttpServlet {
 		}
 
 		Map<String, String> paramMap = createParamMap(request);
-		Map<String, Object> model = new HashMap<>(); // FrontController 에서 Model 객체를 생성하여 넘겨준다. 
+		Map<String, Object> model = new HashMap<>(); // FrontController 에서 Model 객체를 생성하여 넘겨준다.
 
 		String viewName = controllerV4.process(paramMap, model);
 
