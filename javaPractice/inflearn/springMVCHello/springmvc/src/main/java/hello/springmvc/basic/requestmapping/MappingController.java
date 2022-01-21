@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @Slf4j
 public class MappingController {
@@ -15,7 +17,7 @@ public class MappingController {
 		return "ok";
 	}
 
-	@GetMapping("/mapping/{userId}") // 이런식으로 path variable 를 매핑에 쓸 수 있다. URL 경로를 template 화 한것
+	@GetMapping("/users/{userId}") // 이런식으로 path variable 를 매핑에 쓸 수 있다. URL 경로를 template 화 한것
 	public String mappingPath(@PathVariable("userId") String data) { // @PathVariable 로 꺼내서 쓰는 것도 가능하다.
 		log.info("userId : {}", data);
 		return "ok";
