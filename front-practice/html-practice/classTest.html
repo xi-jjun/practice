@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>duplicate class test</title>
+    <style>
+      element.style {
+        color: yellow;
+      }
+
+      body {
+        /* 가장 상위의 body tag 가 하위 element 에게
+        아래와 같은 내용을 상속한다. */
+        text-align: right;
+      }
+
+      #red {
+        color: red;
+      }
+
+      .blue {
+        font-size: 100px;
+        color: blue;
+      }
+
+      .green {
+        color: green;
+      }
+
+      p {
+        color: orange;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <p>1</p>
+    <p class="blue">2</p>
+    <p class="blue green">3</p>
+    <p class="green blue">4</p>
+  </body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>combinator test</title>
+    <style>
+      /* Descendant Selector
+      하위에 있기만 한다면, DFS마냥 탐색해버려서 영향을 준다.*/
+      .des1 .des2 {
+        color: red;
+      }
+
+      /* Child Selector
+      바로 아래에 있는 element에만 영향을 준다.*/
+      .chl1>.chl2 {
+        color: blue;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+    <!-- Descendant Selector TEST -->
+    <div class="des1">
+      <span class="des2">Hello</span>
+      <p>World</p>
+      <span class="des2">Hello2222</span>
+      <p>
+        <span class="des2">HTML TEST
+          <span class="des2">lololololol</span>
+          <p>hi</p>
+        </span>
+      </p>
+    </div>
+
+    <hr>
+    <!-- Child Selector TEST -->
+    <div class="chl1">
+      <span class="chl2">Hello</span>
+      <p>World</p>
+      <span class="chl2">Hello2222</span>
+      <p>
+        <span class="chl2">HTML TEST
+          <span class="chl2">lololololol</span>
+          <p>hi</p>
+        </span>
+      </p>
+    </div>
+  </body>
+
+</html>

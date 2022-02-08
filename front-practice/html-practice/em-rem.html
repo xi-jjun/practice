@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>em rem Test</title>
+    <style>
+      /*
+      상위 element를 기준으로 한다. 
+      */
+      .em {
+        font-size: 1.5em;
+      }
+
+      /*
+      root를 기준으로 한다. (root는 16px)
+      */
+      .rem {
+        font-size: 1.5rem;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <!-- 부모가 em -->
+    <ul class="em">
+      <!-- 따라서 자식 em은 영향을 받는다.(== 상속을 받는다)
+      근데 마침 자식도 em 속성을 가진다. 따라서 1.5**2 가 되어 글씨가 더 큰 것이다-->
+      <li class="em">em</li>
+
+      <li class="rem">rem</li> <!-- 그러나 rem은 부모의 영향을 받지 않는다. -->
+      <li>nothing</li> <!-- 따라서 자식 em은 영향을 받는다.(== 상속을 받는다) -->
+    </ul>
+  </body>
+
+</html>
