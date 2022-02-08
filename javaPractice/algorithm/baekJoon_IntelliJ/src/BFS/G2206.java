@@ -27,7 +27,7 @@ public class G2206 {
 		M = Integer.parseInt(line[1]);
 		map = new int[N][M];
 		isVisited = new boolean[2][N][M];
-		
+
 		for (int i = 0; i < N; i++) {
 			int idy = 0;
 			line = br.readLine().split("");
